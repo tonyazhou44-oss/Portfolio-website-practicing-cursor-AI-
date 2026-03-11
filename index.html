@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name — Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="noise-overlay"></div>
+
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">●</span>
+        <div class="brand-text">
+          <span class="brand-name">Your Name</span>
+          <span class="brand-role">Designer / Creative Technologist</span>
+        </div>
+      </div>
+
+      <nav class="site-nav">
+        <button class="nav-pill" data-scroll-to="works">Works</button>
+        <button class="nav-pill" data-scroll-to="about">About</button>
+        <button class="nav-pill" data-scroll-to="contact">Contact</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="hero-kicker">Portfolio — Selected Works</p>
+          <h1 class="hero-title">
+            Playful worlds,<br />
+            precise storytelling.
+          </h1>
+          <p class="hero-subtitle">
+            A curated selection of interactive pieces, games, and speculative
+            worlds — each project has its own page with full case study and
+            images from the original PDFs.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-pill" data-scroll-to="works">
+              Enter the projects
+            </button>
+            <button class="ghost-pill" data-scroll-to="about">
+              Learn about me
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-row">
+            <span class="meta-label">Specialties</span>
+            <span class="meta-value">
+              Game Design · Narrative · Digital Worlds
+            </span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Selected mediums</span>
+            <span class="meta-value">
+              Unity · 2D &amp; 3D · VR · Installations
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section id="works" class="works">
+        <div class="section-header">
+          <p class="section-kicker">Library</p>
+          <h2 class="section-title">Projects with entry points</h2>
+          <p class="section-subtitle">
+            Each tile is an entry button into a detailed project page that
+            expands the full story, process, and images from the original PDF.
+          </p>
+        </div>
+
+        <div class="works-grid">
+          <article class="work-card" data-tilt onclick="window.location.href='projects/gary-dougs-house-defense.html'">
+            <div class="work-tagline">Arcade-inspired · 2D Pixel Art</div>
+            <h3 class="work-title">Gary Doug's House Defense</h3>
+            <p class="work-meta">
+              Unity · Team project · Character design &amp; animation
+            </p>
+            <a class="work-entry" href="projects/gary-dougs-house-defense.html">
+              Enter project
+              <span class="entry-icon">↗</span>
+            </a>
+          </article>
+
+          <article class="work-card" data-tilt onclick="window.location.href='projects/oblivisci.html'">
+            <div class="work-tagline">VR horror · Environmental storytelling</div>
+            <h3 class="work-title">Oblivisci</h3>
+            <p class="work-meta">
+              Collaborative VR game · Mental health narrative
+            </p>
+            <a class="work-entry" href="projects/oblivisci.html">
+              Enter project
+              <span class="entry-icon">↗</span>
+            </a>
+          </article>
+
+          <article class="work-card" data-tilt onclick="window.location.href='projects/digital-in-reality.html'">
+            <div class="work-tagline">Speculative · Mixed realities</div>
+            <h3 class="work-title">Digital in Reality</h3>
+            <p class="work-meta">
+              Installation · Projection &amp; materials · Perception
+            </p>
+            <a class="work-entry" href="projects/digital-in-reality.html">
+              Enter project
+              <span class="entry-icon">↗</span>
+            </a>
+          </article>
+
+          <article class="work-card" data-tilt onclick="window.location.href='projects/rubiks-cube-inverse-world.html'">
+            <div class="work-tagline">Puzzle · Spatial thinking</div>
+            <h3 class="work-title">Rubik's Cube — Inverse World</h3>
+            <p class="work-meta">
+              Independent game · Surreal puzzle worlds · 2.5D &amp; 3D
+            </p>
+            <a class="work-entry" href="projects/rubiks-cube-inverse-world.html">
+              Enter project
+              <span class="entry-icon">↗</span>
+            </a>
+          </article>
+
+          <article class="work-card" data-tilt onclick="window.location.href='projects/pressgrow.html'">
+            <div class="work-tagline">Growth · Game systems</div>
+            <h3 class="work-title">The Game — Pressgrow</h3>
+            <p class="work-meta">
+              OpenProcessing · Stress, growth, mental health
+            </p>
+            <a class="work-entry" href="projects/pressgrow.html">
+              Enter project
+              <span class="entry-icon">↗</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="about-inner">
+          <h2 class="section-title">About</h2>
+          <p>
+            Replace this text with your own short biography — who you are, what
+            you care about, and how you approach making digital experiences.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="contact-inner">
+          <h2 class="section-title">Contact</h2>
+          <p>
+            Available for collaborations, internships, and commissions.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:you@example.com" class="contact-pill">Email</a>
+            <a href="#" class="contact-pill">LinkedIn</a>
+            <a href="#" class="contact-pill">Portfolio PDF</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Your Name</span>
+      <span>Built by hand, inspired by cinematic portfolios.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>

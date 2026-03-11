@@ -1,0 +1,32 @@
+{
+  "sections": [
+    {
+      "id": "character-design",
+      "images": [
+        "page-02-img-01.png",
+        "page-02-img-02.png",
+        "page-02-img-03.png",
+        "page-02-img-06.png"
+      ]
+    },
+    {
+      "id": "animations",
+      "images": [
+        "page-02-img-07.png",
+        "page-02-img-14.png",
+        "page-02-img-15.png",
+        "page-02-img-16.png"
+      ]
+    },
+    {
+      "id": "environment-ui",
+      "images": [
+        "page-02-img-28.png",
+        "page-02-img-29.png",
+        "page-02-img-33.png",
+        "page-02-img-65.png",
+        "page-02-img-70.png"
+      ]
+    }
+  ]
+}
