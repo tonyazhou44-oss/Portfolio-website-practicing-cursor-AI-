@@ -1,21 +1,15 @@
-/** Base path for GitHub Pages project site (e.g. /Portfolio-website-practicing-cursor-AI-). Empty when local or at repo root. */
-function getBasePath() {
-  if (typeof location === "undefined" || !location.pathname) return "";
-  const segs = location.pathname.split("/").filter(Boolean);
-  if (segs.length >= 1 && segs[0] && segs[0] !== "projects") return "/" + segs[0];
-  return "";
-}
+/** Relative to project page (projects/xxx.html): one level up then into images. Works locally and on GitHub Pages. */
+const IMAGES_BASE = "../images/_extracted";
 
-async function loadPdfManifest(manifestPath) {
-  const res = await fetch(manifestPath, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to load manifest: ${res.status}`);
+async function loadPdfManifest() {
+  const path = `${IMAGES_BASE}/manifest.json`;
+  const res = await fetch(path, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Manifest: ${res.status}`);
   return res.json();
 }
 
 async function loadArrangement(slug) {
-  const base = getBasePath();
-  const path = base ? `${base}/images/_extracted/${slug}/arrangement.json` : `../images/_extracted/${slug}/arrangement.json`;
-  const res = await fetch(path, { cache: "no-store" });
+  const res = await fetch(`${IMAGES_BASE}/${slug}/arrangement.json`, { cache: "no-store" });
   if (!res.ok) return null;
   return res.json();
 }
@@ -85,16 +79,13 @@ function renderGroupedGallery(container, relPaths) {
   }
 }
 
-/** Render one section from arrangement.json: images only (no heading) */
 function renderArrangementSection(container, slug, section) {
   if (!section || !section.images || section.images.length === 0) return;
-  const base = getBasePath();
-  const baseUrl = base ? `${base}/images/_extracted/${slug}/` : `../images/_extracted/${slug}/`;
+  const baseUrl = `${IMAGES_BASE}/${slug}/`;
   const wrap = document.createElement("div");
   wrap.className = "case-gallery case-gallery-inline";
   for (const filename of section.images) {
-    const src = baseUrl + filename;
-    wrap.appendChild(buildImageFigure(src, ""));
+    wrap.appendChild(buildImageFigure(baseUrl + filename, ""));
   }
   container.appendChild(wrap);
 }
@@ -103,25 +94,29 @@ document.addEventListener("DOMContentLoaded", async () => {
   const containers = document.querySelectorAll("[data-pdf-gallery-slug]");
   if (!containers.length) return;
 
-  const manifestPath =
-    document.documentElement.getAttribute("data-manifest-path") ||
-    (getBasePath() ? getBasePath() + "/images/_extracted/manifest.json" : "../images/_extracted/manifest.json");
+  const useArrangementOnly = Array.from(containers).every(
+    (c) => c.getAttribute("data-pdf-arrangement") === "true" && c.getAttribute("data-pdf-section")
+  );
 
-  let manifest;
-  try {
-    manifest = await loadPdfManifest(manifestPath);
-  } catch (e) {
-    containers.forEach((c) => {
-      c.textContent = "Could not load images. Run with a local server (e.g. python3 -m http.server 8000).";
-    });
-    return;
+  let manifest = null;
+  if (!useArrangementOnly) {
+    try {
+      manifest = await loadPdfManifest();
+    } catch (e) {
+      containers.forEach((c) => {
+        c.textContent = "Could not load images. Run with a local server (e.g. python3 -m http.server 8000).";
+      });
+      return;
+    }
   }
 
   const allOutPaths = [];
-  for (const key of Object.keys(manifest)) {
-    const entries = manifest[key] || [];
-    for (const entry of entries) {
-      if (entry && entry.path) allOutPaths.push(String(entry.path));
+  if (manifest) {
+    for (const key of Object.keys(manifest)) {
+      const entries = manifest[key] || [];
+      for (const entry of entries) {
+        if (entry && entry.path) allOutPaths.push(String(entry.path));
+      }
     }
   }
 
@@ -139,14 +134,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         renderArrangementSection(container, slug, section);
         continue;
       }
+      if (useArrangementOnly) {
+        container.textContent = "Could not load images.";
+        continue;
+      }
     }
 
     let relPaths = allOutPaths
       .filter((abs) => abs.includes(`/images/_extracted/${slug}/`))
-      .map((abs) => {
-        const after = abs.replace(/^.*\/images\//, "");
-        return getBasePath() ? getBasePath() + "/images/" + after : "../images/" + after;
-      });
+      .map((abs) => abs.replace(/^.*\/images\//, "../images/"));
 
     if (!relPaths.length) {
       container.textContent = "No images for this project.";
