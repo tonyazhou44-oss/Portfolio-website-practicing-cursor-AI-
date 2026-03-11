@@ -2,26 +2,7 @@
   "sections": [
     {
       "id": "inspiration",
-      "images": [
-        "page-02-img-01.png",
-        "page-02-img-02.png",
-        "page-02-img-03.png",
-        "page-02-img-04.png",
-        "page-02-img-05.png",
-        "page-02-img-06.png",
-        "page-02-img-07.png",
-        "page-02-img-09.png",
-        "page-03-img-01.png",
-        "page-03-img-02.png",
-        "page-03-img-03.png",
-        "page-03-img-04.png",
-        "page-03-img-05.png",
-        "page-03-img-06.png",
-        "page-03-img-07.png",
-        "page-03-img-08.png",
-        "page-04-img-01.png",
-        "page-04-img-02.png"
-      ]
+      "images": []
     },
     {
       "id": "world-design",
@@ -29,45 +10,19 @@
         "page-04-img-03.png",
         "page-04-img-04.png",
         "page-04-img-05.png",
-        "page-04-img-06.png",
-        "page-04-img-07.png",
         "page-04-img-08.png",
         "page-04-img-09.png",
         "page-04-img-10.png",
         "page-04-img-11.png",
         "page-04-img-12.png",
-        "page-04-img-14.png",
-        "page-04-img-15.png",
         "page-04-img-16.png",
         "page-04-img-17.png",
-        "page-05-img-01.png",
-        "page-05-img-02.png",
-        "page-05-img-03.png",
-        "page-05-img-04.png"
+        "page-05-img-01.png"
       ]
     },
     {
       "id": "design-process",
-      "images": [
-        "page-05-img-05.png",
-        "page-05-img-06.png",
-        "page-05-img-07.png",
-        "page-05-img-08.png",
-        "page-05-img-09.png",
-        "page-05-img-10.png",
-        "page-05-img-11.png",
-        "page-05-img-12.png",
-        "page-05-img-13.png",
-        "page-05-img-14.png",
-        "page-05-img-15.png",
-        "page-05-img-16.png",
-        "page-05-img-17.png",
-        "page-06-img-01.png",
-        "page-06-img-02.png",
-        "page-06-img-03.png",
-        "page-06-img-04.png",
-        "page-06-img-05.png"
-      ]
+      "images": []
     },
     {
       "id": "scene-mechanics",
@@ -98,7 +53,6 @@
         "page-10-img-05.png",
         "page-10-img-06.png",
         "page-10-img-07.png",
-        "page-10-img-08.png",
         "page-11-img-01.png",
         "page-11-img-02.png",
         "page-11-img-03.png",

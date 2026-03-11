@@ -1,3 +1,11 @@
+/** Base path for GitHub Pages project site (e.g. /Portfolio-website-practicing-cursor-AI-). Empty when local or at repo root. */
+function getBasePath() {
+  if (typeof location === "undefined" || !location.pathname) return "";
+  const segs = location.pathname.split("/").filter(Boolean);
+  if (segs.length >= 1 && segs[0] && segs[0] !== "projects") return "/" + segs[0];
+  return "";
+}
+
 async function loadPdfManifest(manifestPath) {
   const res = await fetch(manifestPath, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to load manifest: ${res.status}`);
@@ -5,7 +13,8 @@ async function loadPdfManifest(manifestPath) {
 }
 
 async function loadArrangement(slug) {
-  const path = `../images/_extracted/${slug}/arrangement.json`;
+  const base = getBasePath();
+  const path = base ? `${base}/images/_extracted/${slug}/arrangement.json` : `../images/_extracted/${slug}/arrangement.json`;
   const res = await fetch(path, { cache: "no-store" });
   if (!res.ok) return null;
   return res.json();
@@ -79,11 +88,12 @@ function renderGroupedGallery(container, relPaths) {
 /** Render one section from arrangement.json: images only (no heading) */
 function renderArrangementSection(container, slug, section) {
   if (!section || !section.images || section.images.length === 0) return;
-  const base = `../images/_extracted/${slug}/`;
+  const base = getBasePath();
+  const baseUrl = base ? `${base}/images/_extracted/${slug}/` : `../images/_extracted/${slug}/`;
   const wrap = document.createElement("div");
   wrap.className = "case-gallery case-gallery-inline";
   for (const filename of section.images) {
-    const src = base + filename;
+    const src = baseUrl + filename;
     wrap.appendChild(buildImageFigure(src, ""));
   }
   container.appendChild(wrap);
@@ -95,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const manifestPath =
     document.documentElement.getAttribute("data-manifest-path") ||
-    "../images/_extracted/manifest.json";
+    (getBasePath() ? getBasePath() + "/images/_extracted/manifest.json" : "../images/_extracted/manifest.json");
 
   let manifest;
   try {
@@ -133,7 +143,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let relPaths = allOutPaths
       .filter((abs) => abs.includes(`/images/_extracted/${slug}/`))
-      .map((abs) => abs.replace(/^.*\/images\//, "../images/"));
+      .map((abs) => {
+        const after = abs.replace(/^.*\/images\//, "");
+        return getBasePath() ? getBasePath() + "/images/" + after : "../images/" + after;
+      });
 
     if (!relPaths.length) {
       container.textContent = "No images for this project.";

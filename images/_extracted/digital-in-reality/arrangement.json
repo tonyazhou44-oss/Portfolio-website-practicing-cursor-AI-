@@ -32,11 +32,7 @@
     },
     {
       "id": "textures-motif",
-      "images": [
-        "page-03-img-11.png",
-        "page-03-img-12.png",
-        "page-03-img-13.png"
-      ]
+      "images": []
     },
     {
       "id": "installation-design",
