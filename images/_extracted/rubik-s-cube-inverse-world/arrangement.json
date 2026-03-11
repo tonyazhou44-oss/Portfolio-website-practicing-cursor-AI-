@@ -6,19 +6,7 @@
     },
     {
       "id": "world-design",
-      "images": [
-        "page-04-img-03.png",
-        "page-04-img-04.png",
-        "page-04-img-05.png",
-        "page-04-img-08.png",
-        "page-04-img-09.png",
-        "page-04-img-10.png",
-        "page-04-img-11.png",
-        "page-04-img-12.png",
-        "page-04-img-16.png",
-        "page-04-img-17.png",
-        "page-05-img-01.png"
-      ]
+      "images": []
     },
     {
       "id": "design-process",
@@ -27,16 +15,6 @@
     {
       "id": "scene-mechanics",
       "images": [
-        "page-06-img-06.png",
-        "page-07-img-01.png",
-        "page-07-img-02.png",
-        "page-07-img-03.png",
-        "page-07-img-04.png",
-        "page-08-img-01.png",
-        "page-08-img-02.png",
-        "page-08-img-03.png",
-        "page-08-img-04.png",
-        "page-08-img-05.png",
         "page-08-img-06.png",
         "page-09-img-01.png",
         "page-09-img-02.png",

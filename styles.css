@@ -489,7 +489,7 @@ main {
   margin: 0;
   padding: 0;
   border: none;
-  background: transparent;
+  background: #ffffff;
   width: auto;
   max-width: 100%;
 }
@@ -499,6 +499,7 @@ main {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+  background: #ffffff;
 }
 
 .case-gallery figcaption {

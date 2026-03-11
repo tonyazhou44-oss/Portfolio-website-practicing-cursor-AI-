@@ -10,10 +10,7 @@
     },
     {
       "id": "mechanics",
-      "images": [
-        "page-04-img-10.png",
-        "page-04-img-11.png"
-      ]
+      "images": []
     },
     {
       "id": "how-to-play",
@@ -22,9 +19,6 @@
     {
       "id": "meaning",
       "images": [
-        "page-05-img-49.png",
-        "page-05-img-50.png",
-        "page-05-img-51.png",
         "page-06-img-01.png",
         "page-06-img-02.png",
         "page-06-img-03.png",
